@@ -1,0 +1,99 @@
+.speech {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  min-height: 100vh;
+  background: rgb(255, 255, 246);
+  &__question {
+    padding: 20px;
+    background: rgb(236, 229, 214);
+    border-top: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    &-word {
+      position: relative;
+      color: rgb(0, 0, 0);
+      font-size: 60px;
+      font-weight: 700;
+      padding: 25px 20px 20px;
+      text-transform: uppercase;
+      text-align: center;
+      background: rgb(255, 255, 246);
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border: 1px solid rgb(196, 187, 163);
+      }
+    }
+  }
+  &__recognition {
+    color: rgb(142, 204, 226);
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 50px 0 0;
+  }
+  &__count {
+    position: fixed;
+    right: 40px;
+    bottom: 20px;
+    color: #777;
+    font-size: 50px;
+    text-align: center;
+  }
+  &__state-message {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    line-height: 70px;
+    transform: translateX(-50%);
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+  }
+  &__recoding {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 0;
+    background: none;
+    transform: translateX(-50%);
+    opacity: 0.8;
+    &:disabled {
+      opacity: 0.3;
+      &::after {
+        z-index: -1;
+        content: "";
+        display: block;
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        height: 100px;
+        width: 100px;
+        background: rgb(142, 204, 226);
+        border-radius: 50%;
+        opacity: 0;
+        animation: recog-keyframe 2s cubic-bezier(0.075, 0.82, 0.165, 1)
+          infinite;
+      }
+    }
+  }
+}
+@keyframes recog-keyframe {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(2);
+    opacity: 0;
+  }
+}
