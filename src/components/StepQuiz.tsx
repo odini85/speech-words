@@ -17,8 +17,9 @@ const StepQuiz: React.FC<Props> = ({ quiz, onNext }) => {
   const [speechText, setSpeechText] = useState("");
   const [stateMessage, setStateMessage] = useState("");
   const [tryCount, setTryCount] = useState(0);
-  const [showLottieType, setShowLottieType] =
-    useState<ValueOf<typeof LOTTIE_TYPE>>("empty");
+  const [showLottieType, setShowLottieType] = useState<
+    ValueOf<typeof LOTTIE_TYPE>
+  >(LOTTIE_TYPE.EMPTY);
 
   const speechRecognition = useRef<ReturnType<
     typeof useSpeechRecognition
