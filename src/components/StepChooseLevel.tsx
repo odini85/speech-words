@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./Speech.scss";
-
 type Props = {
   onSelectLevel: (level: number) => void;
 };
