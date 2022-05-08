@@ -42,15 +42,15 @@ const StepQuiz: React.FC<Props> = ({ quiz, onNext }) => {
       if (quiz.text === result) {
         setSpeechText("");
         setTryCount(0);
-        setShowLottieType("success");
+        setShowLottieType(LOTTIE_TYPE.SUCCESS);
         console.log("정답");
       } else {
-        setShowLottieType("failure");
+        setShowLottieType(LOTTIE_TYPE.FAILURE);
         console.log("오답!", quiz.text, result);
       }
 
       setTimeout(() => {
-        setShowLottieType("empty");
+        setShowLottieType(LOTTIE_TYPE.EMPTY);
         if (quiz.text === result) {
           onNext(quiz, nextTryCount);
         }

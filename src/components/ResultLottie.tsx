@@ -10,10 +10,10 @@ type Props = {
 };
 
 const ResultLottieAnimation: React.FC<Props> = ({ type }) => {
-  if (type === "success") {
+  if (type === LOTTIE_TYPE.SUCCESS) {
     return <LottieConfetti />;
   }
-  if (type === "failure") {
+  if (type === LOTTIE_TYPE.FAILURE) {
     return <LottieTryAgain />;
   }
 
